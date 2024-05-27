@@ -25,6 +25,10 @@ function Main_side({ comicAry }) {
             },
             body: JSON.stringify(body),
           });
+          const checkbox = document.getElementsByClassName("check");
+          for (const i of checkbox) {
+            i.checked = false;
+          }
         } else {
           const checkbox = document.getElementsByClassName("check");
           for (const i of checkbox) {
