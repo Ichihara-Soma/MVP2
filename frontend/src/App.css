@@ -3,6 +3,10 @@
   background-color: #f6f5f4;
 }
 
+body {
+  background-color: gray;
+}
+
 .all {
   width: 100%;
   display: flex;
@@ -12,8 +16,10 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  border-radius: 30px;
   background-color: orange;
-  height: 150px;
+  border: 2px solid #bf4600;
+  height: 170px;
 }
 
 #h1 {
@@ -75,7 +81,7 @@
 }
 
 .side {
-  background-color: #ff838b;
+  background-color: #fec910;
   width: 30%;
 }
 
@@ -87,8 +93,8 @@ a.netShop {
   margin: auto;
   padding: 1rem 4rem;
   font-weight: bold;
-  border: 2px solid #27acd9;
-  background: #27acd9;
+  border: 2px solid #386f40;
+  background: #386f40;
   color: #fff;
   border-radius: 100vh;
   transition: 0.5s;
@@ -105,7 +111,7 @@ a.netShop:hover {
 
 .main {
   width: 70%;
-  background-color: #b3d874;
+  background-color: #95bc7d;
   /* overflow-y: auto; */
 }
 

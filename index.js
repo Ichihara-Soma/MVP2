@@ -8,7 +8,9 @@ app.use(cors());
 // app.use("/", express.static(__dirname + "/frontend/dist")); //これをやるかbuildの設定をやるかの違いかな？
 
 app.get("/api/comic", async (req, res) => {
-  const comic = await knex.select("comic_name", "comic_volume").table("comic");
+  const comic = await knex
+    .select("comic_name", "comic_volume", "id_store")
+    .table("comic");
   res.json(comic);
 });
 
@@ -28,11 +30,20 @@ app.delete("/api/comic/delete", async (req, res) => {
 
 app.patch("/api/comic/update", async (req, res) => {
   const body = req.body;
-  await knex("comic")
-    .update({
-      comic_volume: body["new_volume"],
-    })
-    .where("comic_name", body["comic_name"]);
+  if (body["new_volume"] !== "完結") {
+    await knex("comic")
+      .update({
+        comic_volume: body["new_volume"],
+        id_store: 0,
+      })
+      .where("comic_name", body["comic_name"]);
+  } else {
+    await knex("comic")
+      .update({
+        id_store: 1,
+      })
+      .where("comic_name", body["comic_name"]);
+  }
 });
 
 app.listen(3000, () => {
