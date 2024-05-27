@@ -3,10 +3,10 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
-  return knex.schema.createTable("comic", function (table) {
+  return knex.schema.createTable("comic", (table) => {
     table.increments("id").primary();
-    table.string("comicName");
-    table.integer("comicVolume");
+    table.string("comic_name");
+    table.integer("comic_volume");
     table.integer("id_store");
   });
 };

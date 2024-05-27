@@ -1,9 +1,14 @@
+const path = require("path");
+require("dotenv").config({
+  path: path.resolve(__dirname, "../.env"),
+});
+
 module.exports = {
   development: {
     client: "pg",
     connection: {
-      user: process.env.POSTGRES_USER || "user",
-      database: process.env.POSTGRES_DB || "comics",
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
     },
     migrations: {
       directory: "./data/migrations",
